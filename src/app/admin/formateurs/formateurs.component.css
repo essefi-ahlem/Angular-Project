@@ -1,0 +1,102 @@
+.mat-table {
+  margin-top: 10px;
+    width: 85%;
+         height:"100";
+         padding-top:10px;
+         padding-left: 50px;
+  background-color: rgb(255, 255, 255);
+  color:black;
+
+  
+}
+
+.mat-row:nth-child(even){
+    background-color: #d2ddef;
+          text-align: center;
+
+}
+        
+.mat-row:nth-child(odd){
+    background-color:#eaeef7;
+          text-align: center;
+
+}
+
+.mat-header-cell{
+  background-color: rgb(68, 115, 197);
+      height: 40px;
+      text-align: center;
+      font-weight: bold;
+font-size:  20PX;
+color :black;
+}
+.add{
+  padding: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 150px;
+  margin-bottom: 5px;}
+
+  .refresg{
+    padding: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 150px;
+    margin-bottom: 5px;   
+  }
+  .delete{
+    width: 45px;
+    height: 45px;
+    border-radius: 150px;
+
+  }
+ .update{
+  width: 45px;
+  height: 45px;
+  border-radius: 150px;
+  position: center;
+ }
+ .mat-cell, .mat-footer-cell {
+  color: #000;
+}
+
+:host {
+  display: block;
+  padding: 10px;
+}
+ul {
+  list-style-type: none;
+}
+ul li {
+  margin: 10px ;
+}
+header, label {
+  color: #000000;
+}
+input, select {
+  background-color: #4daaab;
+  color: #c6c5c3;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
+  border-color: #53ace4;
+  padding: 6px;
+}
+
+button{
+  margin-left: 40px;
+  background-color:  #4daaab; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}

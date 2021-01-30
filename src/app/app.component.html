@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sidebar Dashboard Template</title>
+  </head>
+  <body>
+
+      <div class="header_class">
+        <img src="assets/power.png"   onclick="window.open('', '_self', ''); window.close();"  > 
+        
+      </div>
+<!--sidebar start-->
+<div class="sidebar">
+  <table style="width: 100%;">
+    <tbody>
+    <tr>
+      
+
+        <td ><img src="assets/webina.jpg" class="top_icon" /></td>
+        <td ><p style="font-size:23px; color: rgb(255, 255, 255);"> Espace Admin</td>
+    </tr>    
+    </tbody>
+    </table>
+
+  <br> <br> <br><br> <br> <br>
+  <img src="assets/cherccher.png" class="chercher" HSPACE="5">
+  <button class="btn" style="font-size: medium;">Chercher une session</button>
+
+      <br><br> <br><br> <br>
+      <a routerLink="./dashboard"><img src="assets/dashboard.png" class="icon" HSPACE="20"><span >Dashboard</span></a>
+      <a routerLink="./admin"><img src="assets/sessions.png" class="icon" alt=""HSPACE="20"><span>Sessions</span></a>
+      <a routerLink="./formateurs"><img src="assets/FORM.jpg"class="icon1" alt="" HSPACE="20" ><span>Formateurs</span></a>
+      <a routerLink="./Participants"><img src="assets/participants.png"class="icon" alt="" HSPACE="20" ><span>Participants</span></a>
+ 
+    </div>
+    <!--sidebar end -->
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      
+      
+      </div>
+    
+
+  </body>
+</html>

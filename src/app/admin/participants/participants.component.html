@@ -1,0 +1,119 @@
+
+
+<img src="../../assets/add2.png"class="add" (click)="change_test()"  >
+<img src="../../assets/refresg.png" class="refresg" (click)="refresh()">
+<div *ngIf= "test">
+	<header>
+		<h2 style="padding: 20px;">Ajouter un participant</h2>
+	</header>
+		<form #ParticipantForm="ngForm" (ngSubmit)="editParticipant(ParticipantForm.value)">
+		<ul>
+		<i>
+		<label for="name">Name</label>
+		  <input type="text" name="nom" id="nom" ngModel  required>
+		</i>
+		<i>
+		<label for="prenom">Prenom</label>
+		  <input type="text" name="prenom" id="prenom" ngModel required>
+		</i>
+		<i>
+		<label for="adresse">adresse</label>
+		  <input type="text" name="adresse" id="adresse" ngModel required>
+		</i><i>
+		<label for="email">email</label>
+		  <input type="text" name="email" id="email" ngModel  required>
+		</i><i>
+		<label for="domaine">Societe</label>
+		  <input type="text" name="societe" id="societe" ngModel  required>
+		</i>
+		<i>
+			<label for="domaine">Poste</label>
+			  <input type="text" name="poste" id="poste" ngModel required>
+			</i>
+			</ul>
+			<button type="submit"
+			[disabled]="!ParticipantForm.form.valid">Ajouter</button>
+			</form>
+</div>
+
+
+<div *ngIf= "test_update">
+	<header>
+		<h2 style="padding: 20px;" >Modifier un participant</h2>
+	</header>
+		<form #ParticipantForm="ngForm" (ngSubmit)="submit_update(ParticipantForm.value)">
+		<ul>
+		<i>
+		<label for="name">Name</label>
+		  <input type="text" name="nom" id="nom" [(ngModel)]="participant.nom" required>
+		</i>
+		<i>
+		<label for="prenom">Prenom</label>
+		  <input type="text" name="prenom" id="prenom" [(ngModel)]="participant.prenom" required>
+		</i>
+		<i>
+		<label for="adresse">adresse</label>
+		  <input type="text" name="adresse" id="adresse" [(ngModel)]="participant.adresse" required>
+		</i><i>
+		<label for="email">email</label>
+		  <input type="text" name="email" id="email" [(ngModel)]="participant.email" required>
+		</i><i>
+		<label for="domaine">Societe</label>
+		  <input type="text" name="societe" id="societe" [(ngModel)]="participant.societe" required>
+		</i>
+		<i>
+			<label for="domaine">Poste</label>
+			  <input type="text" name="poste" id="poste" [(ngModel)]="participant.poste" required>
+			</i>
+			</ul>
+			<button type="submit"
+			[disabled]="!ParticipantForm.form.valid">Modifier</button>
+			</form>
+</div>
+
+
+
+
+<div class="mat-table">
+	<mat-table #table [dataSource]="dataSource_part">
+
+		<ng-container matColumnDef="nom">
+			<mat-header-cell *matHeaderCellDef>nom</mat-header-cell>
+			<mat-cell *matCellDef="let element" ng-class='{red : element.changeColor'> {{element.nom}} </mat-cell>
+        </ng-container>
+        
+		<ng-container matColumnDef="prenom">
+			<mat-header-cell *matHeaderCellDef>prenom</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+        </ng-container>     
+
+        <ng-container matColumnDef="adresse">    
+			<mat-header-cell *matHeaderCellDef>adresse</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">    
+			<mat-header-cell *matHeaderCellDef>email</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="societe">    
+			<mat-header-cell *matHeaderCellDef>societe</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.societe}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="poste">    
+			<mat-header-cell *matHeaderCellDef>Poste</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.poste}} </mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Modifier">    
+			<mat-header-cell *matHeaderCellDef>Modifier</mat-header-cell>
+			<mat-cell *matCellDef="let element"> <img src="../../assets/update.png" class="update" (click)="update(element.id)"> </mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Supprimer">    
+			<mat-header-cell *matHeaderCellDef>Supprimer</mat-header-cell>
+			<mat-cell *matCellDef="let element"> <img src="../../assets/delete.png" class="delete" (click)="delete(element)"> </mat-cell>
+        </ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns_part" [style.min-height]="0"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns_part;"></mat-row>
+	</mat-table>
+</div>

@@ -1,0 +1,84 @@
+<table style="width:100%">
+    <tr>
+<div class="class_session">
+    <table>
+        <tr>
+    <td><img src="assets/sessions.png"  width="128" height="128"  > </td>
+    <td><a style="color:white;font-size:25px;"> &nbsp; &nbsp; &nbsp; {{sessions_data.length}}  <br><br> sessions</a> </td>
+</tr>
+</table>
+  </div>
+  <div class="class_participant">
+      <table>
+          <tr>
+    <td><img src="assets/participants.png"  width="128" height="128"></td>
+    <td><a  style="color:white;font-size:25px;">&nbsp; &nbsp; &nbsp; {{ participants_data.length}}  <br><br> participants</a></td>
+      </tr>
+</table>
+  </div>
+
+  <div class="class_formateur">
+    <table>
+        <tr>
+
+    <td><img src="assets/participants.png"  width="128" height="128"></td>
+    <td><a style="color:white;font-size:25px;">&nbsp; &nbsp; &nbsp; {{formateurs_data.length}} <br><br> formateurs</a></td>
+        </tr>
+
+    </table>
+  </div>
+    </tr>
+    <tr> 
+            <table>
+                <td>
+  <div class="mat-table">
+
+	<mat-table #table [dataSource]="dataSource">
+
+		<!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+		<!-- Position Column -->
+		<ng-container matColumnDef="Track">
+			<mat-header-cell *matHeaderCellDef>Track</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.track}} </mat-cell>
+		</ng-container>
+
+		<!-- Name Column -->
+		<ng-container matColumnDef="Nb Sessions">
+			<mat-header-cell *matHeaderCellDef>Nb sessions</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.nb}} </mat-cell>
+		</ng-container>
+
+
+
+		<mat-header-row *matHeaderRowDef="displayedColumns" [style.min-height]="0"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
+</td>
+<td width="150px"></td>
+
+<td>
+<div class="mat-table">
+	<mat-table #table [dataSource]="dataSource_form">
+
+		<ng-container matColumnDef="nom">
+			<mat-header-cell *matHeaderCellDef>nom</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+		</ng-container>
+
+		<!-- Name Column -->
+		<ng-container matColumnDef="prenom">
+			<mat-header-cell *matHeaderCellDef>prenom</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+		</ng-container>
+		<mat-header-row *matHeaderRowDef="displayedColumns_form" [style.min-height]="0"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns_form;"></mat-row>
+	</mat-table>
+</div>
+</td>
+</table>
+</tr> 
+</table>
+

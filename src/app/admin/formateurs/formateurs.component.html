@@ -1,0 +1,108 @@
+<img src="../../assets/add2.png"class="add" (click)="change_test()"  >
+<img src="../../assets/refresg.png" class="refresg" (click)="refresh()">
+<div class ="form " *ngIf= "test">
+	<header>
+		<h2 style="padding: 20px;">Ajouter un formateur</h2>
+	</header>
+		<form #CoachForm="ngForm" (ngSubmit)="editCoach(CoachForm.value)">
+		<ul>
+		<i>
+		<label for="name">Name</label>
+		  <input type="text" name="nom" id="nom"  ngModel required>
+		</i>
+		<i>
+		<label for="prenom">Prenom</label>
+		  <input type="text" name="prenom" id="prenom" ngModel required>
+		</i>
+		<i>
+		<label for="adresse">adresse</label>
+		  <input type="text" name="adresse" id="adresse" ngModel required>
+		</i><i>
+		<label for="email">email</label>
+		  <input type="text" name="email" id="email"ngModel required>
+		</i><i>
+		<label for="domaine">domaine</label>
+		  <input type="text" name="domaine" id="domaine" ngModel required>
+		</i>
+	   
+			</ul>
+			<button type="submit"
+			 [disabled]="!CoachForm.form.valid" >Ajouter</button>
+			</form>
+</div>
+
+
+
+
+<div *ngIf= "test_update">
+	<header>
+		<h2 style="padding: 20px;">Modifier un formateur</h2>
+	</header>
+		<form #CoachForm="ngForm" (ngSubmit)="submit_update(CoachForm.value)">
+		<ul>
+		<i>
+		<label for="name">Name</label>
+		  <input type="text" name="nom" id="nom" [(ngModel)]="formateur.nom" required>
+		</i>
+		<i>
+		<label for="prenom">Prenom</label>
+		  <input type="text" name="prenom" id="prenom" [(ngModel)]="formateur.prenom" required>
+		</i>
+		<i>
+		<label for="adresse">adresse</label>
+		  <input type="text" name="adresse" id="adresse" [(ngModel)]="formateur.adresse" required>
+		</i><i>
+		<label for="email">email</label>
+		  <input type="text" name="email" id="email" [(ngModel)]="formateur.email" required>
+		</i><i>
+		<label for="domaine">domaine</label>
+		  <input type="text" name="domaine" id="domaine" [(ngModel)]="formateur.domaine" required>
+		</i>
+	   
+			</ul>
+			<button type="submit"
+			[disabled]="!CoachForm.form.valid">Modifier</button>
+			</form>
+</div>
+
+
+
+<div class="mat-table">
+	<mat-table #table [dataSource]="dataSource_form">
+
+		<ng-container matColumnDef="nom">
+			<mat-header-cell *matHeaderCellDef>nom</mat-header-cell>
+			<mat-cell *matCellDef="let element" > {{element.nom}} </mat-cell>
+        </ng-container>
+        
+		<ng-container matColumnDef="prenom">
+			<mat-header-cell *matHeaderCellDef>prenom</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+        </ng-container>     
+
+        <ng-container matColumnDef="adresse">    
+			<mat-header-cell *matHeaderCellDef>adresse</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">    
+			<mat-header-cell *matHeaderCellDef>email</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="domaine">    
+			<mat-header-cell *matHeaderCellDef>domaine</mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.domaine}} </mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Modifier">    
+			<mat-header-cell *matHeaderCellDef>Modifier</mat-header-cell>
+			<mat-cell *matCellDef="let element"> <img src="../../assets/update.png" class="update" (click)="update(element.id)"> </mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Supprimer">    
+			<mat-header-cell *matHeaderCellDef>Supprimer</mat-header-cell>
+			<mat-cell *matCellDef="let element"> <img src="../../assets/delete.png" class="delete" (click)="delete(element)"> </mat-cell>
+        </ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns_form" [style.min-height]="0"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns_form;"></mat-row>
+	</mat-table>
+</div>
